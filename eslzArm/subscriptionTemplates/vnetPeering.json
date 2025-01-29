@@ -45,6 +45,13 @@
             "description": "Provide the name for the hub."
         }        
       },
+      "remoteVirtualNetwork": {
+        "type": "string",
+        "defaultValue": "[concat(subscription().id,'/resourceGroups/',parameters('vNetRgName'), '/providers/','Microsoft.Network/virtualNetworks/', parameters('vNetName'))]",
+        "metadata": {
+            "description": "Provide the resourceId for the remote virtual network."
+        }
+      },
       "dnsServers": {
         "type": "array",
         "defaultValue": [],
@@ -171,7 +178,7 @@
                   },
                   "parameters": {
                     "remoteVirtualNetwork": {
-                      "value": "[concat(subscription().id,'/resourceGroups/',parameters('vNetRgName'), '/providers/','Microsoft.Network/virtualNetworks/', parameters('vNetName'))]"
+                      "value": "[parameters('remoteVirtualNetwork')]"
                     },
                     "hubName": {
                       "value": "[parameters('hubName')]"
