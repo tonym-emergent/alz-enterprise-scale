@@ -28,7 +28,9 @@
         }
     },
     "variables": {
-        "hubResourceId": "[concat('/subscriptions/', parameters('connectivitySubscriptionId'), '/resourceGroups/', parameters('topLevelManagementGroupPrefix'), '-connectivity', '/providers/Microsoft.Network/virtualNetworks/', parameters('topLevelManagementGroupPrefix'), '-hub-', parameters('location'))]",
+        "connectivityRg": "[concat('rg-', parameters('topLevelManagementGroupPrefix'), '-vnethub-', parameters('location'))]",
+        "connectivityVnet": "[concat('vnet-conn-', parameters('location'), '-001')]",
+        "hubResourceId": "[concat('/subscriptions/', parameters('connectivitySubscriptionId'), '/resourceGroups/', variables('connectivityRg'), '/providers/Microsoft.Network/virtualNetworks/', variables('connectivityVnet'))]",
         "rbacNameForLz": "[guid(subscription().id)]",
         // "rbacNameForNConnectivity": "[guid(concat(parameters('addresses'), deployment().name))]",
         "vNetPolicyAssignment": "VNet-to-corp",

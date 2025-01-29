@@ -85,7 +85,12 @@
                 "properties": {}
               }
             ],
-            "outputs": {}
+            "outputs": {
+              "vNetRgName": {
+                "type": "string",
+                "value": "[parameters('vNetRgName')]"
+              }
+            }
           }
         }
       },
@@ -183,7 +188,7 @@
                     "resources": [
                       {
                         "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
-                        "name": "[[concat(parameters('hubName'),'/',last(split(parameters('remoteVirtualNetwork'),'/')))]",
+                        "name": "[concat(parameters('hubName'),'/',last(split(parameters('remoteVirtualNetwork'),'/')))]",
                         "apiVersion": "2020-05-01",
                         "properties": {
                           "allowVirtualNetworkAccess": true,
@@ -201,7 +206,16 @@
                 }
               }
             ],
-            "outputs": {}
+            "outputs": {
+              "vNetName": {
+                "type": "string",
+                "value": "[parameters('vNetName')]"
+              },
+              "hubResourceId": {
+                "type": "string",
+                "value": "[parameters('hubResourceId')]"
+              }
+            }
           }
         }
       }
