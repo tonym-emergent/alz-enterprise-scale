@@ -39,6 +39,12 @@
             "description": "Provide the resourceId for the hub."
         }        
       },
+      "hubName": {
+        "type": "string",
+        "metadata": {
+            "description": "Provide the name for the hub."
+        }        
+      },
       "dnsServers": {
         "type": "array",
         "defaultValue": [],
@@ -168,7 +174,7 @@
                       "value": "[concat(subscription().id,'/resourceGroups/',parameters('vNetRgName'), '/providers/','Microsoft.Network/virtualNetworks/', parameters('vNetName'))]"
                     },
                     "hubName": {
-                      "value": "[split(parameters('hubResourceId'),'/')[8]]"
+                      "value": "[parameters('hubName')]"
                     }
                   },
                   "template": {
