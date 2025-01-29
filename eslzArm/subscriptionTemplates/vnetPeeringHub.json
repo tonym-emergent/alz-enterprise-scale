@@ -104,7 +104,16 @@
               }
             }
           ],
-          "outputs": {}
+          "outputs": {
+            "hubName": {
+              "type": "string",
+              "value": "[variables('hubName')]"
+            },
+            "hubNameSecondary": {
+                "type": "string",
+                "value": "[variables('hubNameSecondary')]"
+            }
+          }
         }
       }
     }
