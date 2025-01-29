@@ -80,7 +80,7 @@
               {
                 "type": "Microsoft.Resources/resourceGroups",
                 "apiVersion": "2020-06-01",
-                "name": "[concat('NetworkWatcherRG-', parameters('vNetLocation'))]",
+                "name": "[concat('rg-networkwatcher-', parameters('vNetLocation'))]",
                 "location": "[parameters('vNetLocation')]",
                 "properties": {}
               }
@@ -97,7 +97,7 @@
       {
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2020-06-01",
-        "name": "[concat('alz-vnet-', parameters('vNetLocation'), '-', substring(uniqueString(subscription().id),0,6))]",
+        "name": "[concat('alz-vnet-', parameters('vNetLocation'), '-', substring(uniqueString(subscription().id),0,8))]",
         "resourceGroup": "[parameters('vNetRgName')]",
         "dependsOn": [
           "[concat('alz-vnet-rg-', parameters('vNetLocation'), '-', substring(uniqueString(subscription().id),0,6))]"
@@ -196,12 +196,17 @@
                           "allowGatewayTransit": true,
                           "useRemoteGateways": false,
                           "remoteVirtualNetwork": {
-                            "id": "[[parameters('remoteVirtualNetwork')]"
+                            "id": "[parameters('remoteVirtualNetwork')]"
                           }
                         }
                       }
                     ],
-                    "outputs": {}
+                    "outputs": {
+                      "hubName": {
+                        "type": "string",
+                        "value": "[parameters('hubName')]"
+                      }
+                    }
                   }
                 }
               }
@@ -214,6 +219,10 @@
               "hubResourceId": {
                 "type": "string",
                 "value": "[parameters('hubResourceId')]"
+              },
+              "hubName": {
+                "type": "string",
+                "value": "[split(parameters('hubResourceId'),'/')[8]]"
               }
             }
           }
