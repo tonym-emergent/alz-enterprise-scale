@@ -51,10 +51,10 @@
                 "policyDefinitionId": "[variables('vNetPolicyDefinition')]",
                 "parameters": {
                     "vNetName": {
-                        "value": "[concat('corp-vnet-', subscription().subscriptionId)]"
+                        "value": "[concat('vnet-corp-', parameters('location'), '-001')]"
                     },
                     "vNetRgName": {
-                        "value": "[concat('corp-rg-vnet-', subscription().subscriptionId)]"
+                        "value": "[concat('rg-', parameters('topLevelManagementGroupPrefix'), '-vnet-', parameters('location'), '-001')]"
                     },
                     "vNetLocation": {
                         "value": "[parameters('location')]"
