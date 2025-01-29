@@ -24,5 +24,10 @@
             "location": "[parameters('location')]"
         }
     ],
-    "outputs": {}
+    "outputs": {
+        "resourceGroup": {
+            "type": "string",
+            "value": "[parameters('rgName')]"
+        }
+    }
 }
