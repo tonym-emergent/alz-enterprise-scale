@@ -16,7 +16,7 @@
         "message": "The JSON version of this file is programatically generated from Bicep. PLEASE DO NOT UPDATE MANUALLY!!",
         "description": "Provide a prefix (max 10 characters, unique at tenant-scope) for the Management Group hierarchy and other resources created as part of an Azure landing zone. DEFAULT VALUE = \"alz\""
       },
-      "maxLength": 10
+      "maxLength": 20
     },
     "location": {
       "type": "string",
