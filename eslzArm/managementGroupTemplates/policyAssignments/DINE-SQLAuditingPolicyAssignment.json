@@ -6,8 +6,7 @@
             "type": "string",
             "metadata": {
                 "description": "Provide the ESLZ company prefix to the intermediate root management group containing the policy definitions."
-            },
-            "defaultValue": "HistoSonics"
+            }
         },
         "logAnalyticsResourceId": {
             "type": "string",
