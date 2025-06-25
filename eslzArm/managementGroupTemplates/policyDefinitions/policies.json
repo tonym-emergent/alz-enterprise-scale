@@ -27,7 +27,7 @@
     },
     "scope": {
       "type": "string",
-      "defaultValue": "[tenantResourceId('Microsoft.Management/managementGroups', 'HistoSonics')]",
+      "defaultValue": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('topLevelManagementGroupPrefix'))]",
       "metadata": {
         "description": "Optionally set the scope for custom Policy Definitions used in Policy Set Definitions (Initiatives). Must be one of '/', '/subscriptions/id' or '/providers/Microsoft.Management/managementGroups/id'. DEFAULT VALUE = '/providers/Microsoft.Management/managementGroups/${topLevelManagementGroupPrefix}'"
       }
